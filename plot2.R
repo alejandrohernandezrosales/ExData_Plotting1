@@ -1,0 +1,23 @@
+## plot2.R my code for the 2nd plot of the assignment of week 1 
+## of Exploratory Data Analysis
+
+#define the column classes
+colClass=c(rep("character",2), rep("numeric",5))
+# read data
+x<-read.table("household_power_consumption.txt", 
+              header=TRUE, sep=";", na.strings="?", colClasses=colClass)
+#subset the data for the requested dates
+x<-subset(x, Date %in% c("1/2/2007","2/2/2007"))
+#convert date time fields into one datetime field
+x$datetime<-as.POSIXct(paste(x$Date,x$Time, sep=" "),format="%d/%m/%Y %H:%M:%S")
+
+# turn on the png device
+png(png,units="px", width=480, height=480,filename="plot2.png")
+
+
+# plot the chart
+plot(x$datetime, x$Global_active_power, type="l", 
+     ylab="Global Active Power (kilowatts)", xlab="")
+
+#turn off the png device
+dev.off()
