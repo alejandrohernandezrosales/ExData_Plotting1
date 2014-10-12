@@ -1,4 +1,4 @@
-## plot3.R my code for the 3rd plot of the assignment of week 1 
+## plot4.R my code for the 4th plot of the assignment of week 1 
 ## of Exploratory Data Analysis
 
 #define the column classes
